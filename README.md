@@ -17,6 +17,8 @@ Basic link in bio page.
 
 -The backround can be a .gif file.
 
+-Customizable music and music player (using links).
+
 Made with 💖
 
 LICENSED BY ENES DINC 2025 (MIT)
