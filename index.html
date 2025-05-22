@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enes Dinç | Links</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            transition: background-color 0.3s ease;
+        }
+        
+        body.dark {
+            background-color: #0f172a;
+            color: #f8fafc;
+        }
+        
+        .background-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+        
+        .profile-img {
+            border: 4px solid white;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .profile-img:hover {
+            transform: scale(1.05);
+        }
+        
+        .link-card {
+            transition: all 0.2s ease;
+            border-radius: 12px;
+            background-color: white;
+        }
+        
+        .dark .link-card {
+            background-color: #1e293b;
+            border: 1px solid #334155;
+        }
+        
+        .link-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .dark .link-card:hover {
+            box-shadow: 0 10px 25px -5px rgba(255, 255, 255, 0.05);
+        }
+        
+        .social-icon {
+            transition: all 0.2s ease;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+        }
+        
+        .social-icon:hover {
+            transform: scale(1.2);
+        }
+        
+        .dark-mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .dark .dark-mode-toggle {
+            background: rgba(30, 41, 59, 0.8);
+            color: white;
+        }
+        
+        .content-container {
+            background: linear-gradient(135deg, #ef4444 0%, #000000 100%);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+            color: white;
+        }
+        
+        .dark .content-container {
+            background: linear-gradient(135deg, #b91c1c 0%, #000000 100%);
+            box-shadow: 0 10px 15px -3px rgba(255, 255, 255, 0.05);
+        }
+        
+        .dark h1, .dark h3 {
+            color: #f8fafc;
+        }
+        
+        .dark p {
+            color: #94a3b8;
+        }
+        
+        /* Tiny social icons */
+        .tiny-social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 20px;
+        }
+        
+        .tiny-icon {
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 3px;
+            font-size: 10px;
+            transition: all 0.2s ease;
+        }
+        
+        .tiny-icon:hover {
+            transform: scale(1.3);
+        }
+        
+        .instagram-icon {
+            background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+            color: white;
+        }
+        
+        .github-icon {
+            background: #333;
+            color: white;
+        }
+        
+        .tiktok-icon {
+            background: #000;
+            color: white;
+        }
+        
+        .spotify-icon {
+            background: #1DB954;
+            color: white;
+        }
+        
+        .telegram-icon {
+            background: #0088CC;
+            color: white;
+        }
+        
+        /* Volume control */
+        .volume-control {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 20px;
+            padding: 8px 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .dark .volume-control {
+            background: rgba(30, 41, 59, 0.8);
+            color: white;
+        }
+        
+        .volume-slider {
+            width: 80px;
+            -webkit-appearance: none;
+            appearance: none;
+            height: 4px;
+            border-radius: 2px;
+            background: #ddd;
+            outline: none;
+        }
+        
+        .dark .volume-slider {
+            background: #475569;
+        }
+        
+        .volume-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ef4444;
+            cursor: pointer;
+        }
+        
+        .dark .volume-slider::-webkit-slider-thumb {
+            background: #b91c1c;
+        }
+        
+        .music-control {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 20px;
+            padding: 8px 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .dark .music-control {
+            background: rgba(30, 41, 59, 0.8);
+            color: white;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4">
+    <!-- Background Image -->
+    <img src="https://i.pinimg.com/originals/c5/9a/d2/c59ad2bd4ad2fbacd04017debc679ddb.gif" class="background-image" id="backgroundImage">
+    
+    <!-- Dark Mode Toggle -->
+    <div class="dark-mode-toggle" id="darkModeToggle">
+        <i class="fas fa-moon" id="darkModeIcon"></i>
+    </div>
+    
+    <!-- Music Player -->
+    <audio id="backgroundMusic" loop>
+        <source src="https://r2.guns.lol/2e49f7b5-abba-4784-8b93-b976d92d07fd.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    
+    <!-- Music Control -->
+    <div class="music-control" id="musicControl">
+        <i class="fas fa-music"></i>
+        <span></span>
+        <button id="playPauseBtn"><i class="fas fa-play"></i></button>
+    </div>
+    
+    
+    <div class="w-full max-w-md">
+        <div class="content-container">
+            <!-- Profile Section -->
+            <div class="text-center mb-8">
+                <img src="https://r2.guns.lol/86f60f88-f05d-403e-abaf-648fdcff6c4c.webp" 
+                     class="w-48 h-48 md:w-56 md:h-56 rounded-full mx-auto mb-6 object-cover profile-img">
+                <h1 class="text-3xl font-bold text-white mb-1 dark:text-white">Enes Dinç</h1>
+                <p class="text-gray-200 text-lg dark:text-gray-400">KAL 27' Cyber Security Engineering Student. İstek üzerine website yapıyorum.</p>
+            </div>
+
+            <!-- Links Section -->
+            <div class="space-y-4 mb-8">
+                <!-- Instagram -->
+                <a href="https://instagram.com/realenesha" target="_blank" class="block">
+                    <div class="link-card p-4 flex items-center shadow-sm">
+                        <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-pink-500 to-purple-600 flex items-center justify-center mr-4">
+                            <i class="fab fa-instagram text-white text-lg"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-medium text-gray-800 dark:text-white">Instagram</h3>
+                            <p class="text-sm text-gray-500 dark:text-gray-400">@realenesha</p>
+                        </div>
+                        <div class="ml-auto">
+                            <i class="fas fa-chevron-right text-gray-400"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="mailto:realenesha@icloud.com" target="_blank" class="block">
+                    <div class="link-card p-4 flex items-center shadow-sm">
+                        <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center mr-4">
+                            <i class="fas fa-envelope text-white text-lg"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-medium text-gray-800 dark:text-white">Email</h3>
+                            <p class="text-sm text-gray-500 dark:text-gray-400">realenesha@icloud.com</p>
+                        </div>
+                        <div class="ml-auto">
+                            <i class="fas fa-chevron-right text-gray-400"></i>
+                        </div>
+                    </div>
+                </a>                
+
+                <!-- GitHub -->
+                <a href="https://github.com/echonovemberechosierra" target="_blank" class="block">
+                    <div class="link-card p-4 flex items-center shadow-sm">
+                        <div class="w-10 h-10 rounded-lg bg-gray-800 flex items-center justify-center mr-4">
+                            <i class="fab fa-github text-white text-lg"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-medium text-gray-800 dark:text-white">GitHub</h3>
+                            <p class="text-sm text-gray-500 dark:text-gray-400">@echonovemberechosierra</p>
+                        </div>
+                        <div class="ml-auto">
+                            <i class="fas fa-chevron-right text-gray-400"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- TikTok -->
+                <a href="https://tiktok.com/@realenesha" target="_blank" class="block">
+                    <div class="link-card p-4 flex items-center shadow-sm">
+                        <div class="w-10 h-10 rounded-lg bg-black flex items-center justify-center mr-4">
+                            <i class="fab fa-tiktok text-white text-lg"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-medium text-gray-800 dark:text-white">TikTok</h3>
+                            <p class="text-sm text-gray-500 dark:text-gray-400">@realenesha</p>
+                        </div>
+                        <div class="ml-auto">
+                            <i class="fas fa-chevron-right text-gray-400"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Spotify -->
+                <a href="https://open.spotify.com/artist/0b8d4pDA7sMLDMrR3bfvg7?si=6z18dTPRSQKJtSJH-SEIKQ" target="_blank" class="block">
+                    <div class="link-card p-4 flex items-center shadow-sm">
+                        <div class="w-10 h-10 rounded-lg bg-green-500 flex items-center justify-center mr-4">
+                            <i class="fab fa-spotify text-white text-lg"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-medium text-gray-800 dark:text-white">Spotify</h3>
+                            <p class="text-sm text-gray-500 dark:text-gray-400">@KyleINC</p>
+                        </div>
+                        <div class="ml-auto">
+                            <i class="fas fa-chevron-right text-gray-400"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Telegram -->
+                <a href="https://t.me/enessquik" target="_blank" class="block">
+                    <div class="link-card p-4 flex items-center shadow-sm">
+                        <div class="w-10 h-10 rounded-lg bg-blue-500 flex items-center justify-center mr-4">
+                            <i class="fab fa-telegram text-white text-lg"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-medium text-gray-800 dark:text-white">Telegram</h3>
+                            <p class="text-sm text-gray-500 dark:text-gray-400">@enessquik</p>
+                        </div>
+                        <div class="ml-auto">
+                            <i class="fas fa-chevron-right text-gray-400"></i>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Tiny Social Icons (Favicon-style) -->
+            <div class="tiny-social-icons">
+                <a href="https://instagram.com/realenesha" target="_blank" class="tiny-icon instagram-icon">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="mailto:realenesha@icloud.com" target="_blank" class="tiny-icon" style="background: #3b82f6; color: white;">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="https://github.com/echonovemberechosierra" target="_blank" class="tiny-icon github-icon">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://tiktok.com/@realenesha" target="_blank" class="tiny-icon tiktok-icon">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+                <a href="https://open.spotify.com/artist/0b8d4pDA7sMLDMrR3bfvg7?si=6z18dTPRSQKJtSJH-SEIKQ" target="_blank" class="tiny-icon spotify-icon">
+                    <i class="fab fa-spotify"></i>
+                </a>
+                <a href="https://t.me/enessquik" target="_blank" class="tiny-icon telegram-icon">
+                    <i class="fab fa-telegram"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Dark Mode Toggle Functionality
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const darkModeIcon = document.getElementById('darkModeIcon');
+        const body = document.body;
+        
+        // Check for saved user preference or system preference
+        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+        const currentTheme = localStorage.getItem('theme');
+        
+        if (currentTheme === 'dark' || (!currentTheme && prefersDarkScheme.matches)) {
+            body.classList.add('dark');
+            darkModeIcon.classList.replace('fa-moon', 'fa-sun');
+        }
+        
+        darkModeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark');
+            
+            if (body.classList.contains('dark')) {
+                darkModeIcon.classList.replace('fa-moon', 'fa-sun');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                darkModeIcon.classList.replace('fa-sun', 'fa-moon');
+                localStorage.setItem('theme', 'light');
+            }
+        });
+        
+        // Music Player Functionality
+        const backgroundMusic = document.getElementById('backgroundMusic');
+        const playPauseBtn = document.getElementById('playPauseBtn');
+        const volumeSlider = document.getElementById('volumeSlider');
+        const musicControl = document.getElementById('musicControl');
+        
+        // Autoplay music (may be blocked by browser)
+        backgroundMusic.volume = 0.5;
+        backgroundMusic.play().catch(e => {
+            console.log("Autoplay was prevented. User needs to interact first.");
+        });
+        
+        // Play/Pause button
+        playPauseBtn.addEventListener('click', () => {
+            if (backgroundMusic.paused) {
+                backgroundMusic.play();
+                playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+            } else {
+                backgroundMusic.pause();
+                playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+            }
+        });
+        
+        // Volume control
+        volumeSlider.addEventListener('input', () => {
+            backgroundMusic.volume = volumeSlider.value;
+        });
+        
+        // Update play/pause button when music ends
+        backgroundMusic.addEventListener('pause', () => {
+            playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+        });
+        
+        backgroundMusic.addEventListener('play', () => {
+            playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+        });
+        
+        // Click anywhere on music control to play/pause
+        musicControl.addEventListener('click', (e) => {
+            if (e.target !== playPauseBtn && !playPauseBtn.contains(e.target)) {
+                playPauseBtn.click();
+            }
+        });
+    </script>
+</body>
+</html>     
